@@ -1,0 +1,46 @@
+<html lang=en><head><title>Fabric Elements</title><meta charset=utf-8 /><meta name=viewport content="width=device-width"/><style>f-docs-template{visibility:hidden}f-docs-template:defined{visibility:visible}</style><link href=https://assets.finn.no/pkg/@fabric-ds/css/v0/fabric.min.css rel=stylesheet /><link href=https://assets.finn.no/pkg/@fabric-ds/common/v1/css/markdown.css rel=stylesheet /><link href="https://assets.finn.no/pkg/@fabric-ds/common/v1/template/index.js?a=1" rel=modulepreload /><link href=https://assets.finn.no/pkg/@fabric-ds/common/v1/asset-links/index.js rel=modulepreload /><link href=https://assets.finn.no/pkg/@fabric-ds/common/v1/highlight-box/index.js rel=modulepreload /><style>.tabledoc{border-collapse:collapse;font-size:14px;margin-top:2rem;margin-bottom:56px;width:100%}.tabledoc tr{border-bottom:1px solid #ddd}.tabledoc th{text-transform:uppercase;font-size:11px;text-align:left;color:#767676}.tabledoc td,.tabledoc th{padding:10px 16px;vertical-align:top}.doc-advanced{border-collapse:collapse;font-size:14px;margin-top:2rem;margin-bottom:56px;width:100%}.doc-advanced tr{border-bottom:1px solid #ddd}.doc-advanced thead th{font-size:20px;text-align:left;padding:24px 16px;font-weight:400}.doc-advanced tbody th{text-transform:uppercase;font-size:11px;text-align:left;color:#767676}.doc-advanced tbody td,.doc-advanced tbody th{padding:10px 16px;vertical-align:top}.example{padding:30px;border:3px solid #f6f8fa;margin-bottom:16px;margin-top:-20px}</style><script src=https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin=anonymous></script><script type=module crossorigin src=/assets/vendor.eb30aee6.js></script><script type=module crossorigin src=/assets/scripts.2627f996.js></script></head><body><f-docs-template><script data-for=sidebar type=application/json>{
+    "category": "Elements",
+    "items": [
+      {
+        "title": "Layout",
+        "open": true,
+        "items": [
+          {
+            "title": "Box",
+            "href": "/pages/components/box.html"
+          },
+          {
+            "title": "Broadcast",
+            "href": "/pages/components/broadcast.html"
+          },
+          {
+            "title": "Card",
+            "href": "/pages/components/card.html"
+          },
+          {
+            "title": "Toast",
+            "href": "/pages/components/toast.html"
+          }
+        ]
+      },
+      {
+        "title": "Navigation",
+        "open": true,
+        "items": [
+          {
+            "title": "Breadcrumbs",
+            "href": "/pages/components/breadcrumbs.html"
+          }
+        ]
+      }
+    ]
+  }</script><main slot=content><h1 class=mb-16>Toast</h1><h2 class="mt-24 mb-16">Props</h2><p>Type of toast: <strong>type</strong> — default success (success, warning, error, info)</p><p>Text content: <strong>text</strong> — default undefined</p><p>Auto removal: <strong>duration</strong> — default 2400 (only used for programmatic toast duration)</p><p>Close handler: <strong>onClose</strong> — default undefined (not needed, but will perform alongside close)</p><p>Toast message: <strong>text</strong> — default undefined (only used when updating toast)</p><h2 class="mt-24 mb-16">Programmatic toasting</h2><syntax-highlight>import { toast, removeToast, updateToast } from '@fabric-ds/elements';</syntax-highlight><p class=mt-4>Easiest way to emit a successful toast with auto removal</p><syntax-highlight>toast('message')</syntax-highlight><div class=example><button class="button button--small" onclick='window.toast("message")'>Emit toast</button></div><p class=mt-4>Setting duration to 0 will disable auto-removal. The canClose property tells the toast that it can be closed, removing this and setting duration to 0 creates a toast that never goes away.</p><syntax-highlight>toast('message', { type: 'warning', duration: 0, canClose: true })</syntax-highlight><div class=example><button class="button button--small" onclick='window.toast("message",{type:"warning",duration:0,canClose:!0})'>Emit toast</button></div><p class=mt-4>The toast() function returns the toast, meaning you can assign this to a variable and update / remove the toast later.</p><syntax-highlight>const toast = toast('message', { type: 'warning', duration: 0 })</syntax-highlight><syntax-highlight class=-mt-20>updateToast(toast.id, { text: 'Updated the toast message and type', type: 'error' });</syntax-highlight><syntax-highlight class=-mt-20>removeToast(toast.id):</syntax-highlight><div class=example><button class="button button--small" onclick='window.toast("message",{id:"test",type:"warning",duration:0})'>Emit non-dismissable toast</button> <button class="button button--small" onclick='window.updateToast("test",{text:"Updated the toast message and type",type:"error"})'>Update toast</button> <button class="button button--small" onclick='window.removeToast("test")'>Remove toast</button></div><h2 class="mt-24 mb-16">Manual toasting</h2><syntax-highlight><f-toast type=success text="Hi! I'm an example toast!"></f-toast></syntax-highlight><div class=example><f-toast type=success text="Hi! I'm an example toast!"></f-toast></div><syntax-highlight><f-toast type=error text="Hi! I'm an example error message!"></f-toast></syntax-highlight><div class=example><f-toast id=error type=error text="Hi! I'm an example error message!"></f-toast></div><syntax-highlight><f-toast type=warning text="Hi! I'm an example error message!"></f-toast></syntax-highlight><div class=example><f-toast type=warning text="Hi! I'm an example error message!"></f-toast></div><syntax-highlight><f-toast type=info canclose text="Hi! I'm an example toast that can be dismissed! ... Maybe"></f-toast></syntax-highlight><div class=example><f-toast type=info canclose text="Hi! I'm an example toast that can be dismissed! ... Maybe"></f-toast></div></main><script data-for=footer type=application/json>{
+    "github": {
+      "name": "Github",
+      "href": "https://github.com/fabric-ds/elements"
+    },
+    "slack": {
+      "name": "#finn-fabric",
+      "href": "https://sch-chat.slack.com/archives/C01GYKPJVFT"
+    }
+  }</script></f-docs-template><script src=https://assets.finn.no/pkg/@fabric-ds/common/v1/template/index.js type=module></script><script src=https://assets.finn.no/pkg/@fabric-ds/common/v1/asset-links/index.js type=module></script><script src=https://assets.finn.no/pkg/@fabric-ds/common/v1/highlight-box/index.js type=module></script></body></html>
